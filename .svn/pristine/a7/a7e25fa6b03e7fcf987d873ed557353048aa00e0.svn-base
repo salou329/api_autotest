@@ -1,0 +1,12 @@
+name: 营业厅列表
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+request:
+    url: /admin/businesshall
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+validate:
+    - eq: ["status_code", 200]

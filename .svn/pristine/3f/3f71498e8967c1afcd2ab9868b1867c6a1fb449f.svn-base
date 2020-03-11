@@ -1,0 +1,16 @@
+config:
+    name: "更新版本"
+    variables:
+      sql: "select username from admin where remark='shiwenbin'"
+teststeps:
+    - name: 登陆
+      api: api/登录.yml
+      extract:
+          - token: cookies.JSESSIONID
+      validate:
+          - eq: ["content.data.username","${select($sql)}"]
+    - name: 更新版本
+      api: api/更新版本.yml
+      variables:
+          JSESSIONID: $token
+          where: '{"version_content":"abc","release_time":"2020-03-19 16:48","installtime":"","update_immediately":"1","businesHallIds":"f40794f7d9a1427c8592cf4bbe7db4c1","version_code":"1.0.1","version_size":5201314,"version_size_byte":3031,"release_account_id":"3c9136e9469c4008b883b70a121eff45"}'

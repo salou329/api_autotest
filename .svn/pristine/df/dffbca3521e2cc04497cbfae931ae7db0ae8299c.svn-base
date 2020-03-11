@@ -1,0 +1,15 @@
+name: 获取详情页上方设备信息
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    id: id
+request:
+    url: /admin/device/detail
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        id: $id
+validate:
+    - eq: ["status_code", 200]

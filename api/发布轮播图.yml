@@ -1,0 +1,16 @@
+name: 发布轮播图 
+base_url: ${ENV(url)}
+variables:   
+    provinceList: provinceList
+    JSESSIONID: ${ENV(JSESSIONID)}
+    banner: banner
+request:
+    url: /admin/banner/modify
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        where: "{provinceList:$provinceList,banner:$banner}"
+validate:
+    - eq: ["status_code", 200]

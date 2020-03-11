@@ -1,0 +1,15 @@
+name: 版本批量禁止允许下载
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    vid:
+request:
+    url: /admin/version/batchUpdateIsavailable
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    params:
+        vid: $vid
+validate:
+    - eq: ["status_code", 200]

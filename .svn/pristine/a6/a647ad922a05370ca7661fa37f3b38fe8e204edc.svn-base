@@ -1,0 +1,20 @@
+name: 修改营业厅
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    id: id
+    provinceid: provinceid
+    name: name
+    cityid: cityid
+    distractid: distractid
+    address: address
+request:
+    url: /admin/businesshall/modify
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        where: "{id:$id,provinceid:$provinceid,name:$name,cityid:$cityid,distractid:$distractid,address:$address}"
+validate:
+    - eq: ["status_code", 200]

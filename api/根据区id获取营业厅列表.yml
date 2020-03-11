@@ -1,0 +1,15 @@
+name: 根据区id获取营业厅列表
+base_url: ${ENV(url)}
+variables:
+    distractid: distractid
+    JSESSIONID: ${ENV(JSESSIONID)}
+request:
+    url: /admin/device/getBusinessHallList
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: "application/x-www-form-urlencoded"
+    params:
+        distractid: $distractid
+validate:
+    - eq: ["status_code", 200]

@@ -1,0 +1,17 @@
+name: 账号列表
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    provinceId:
+    type:
+request:
+    url: /admin/admin
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        provinceId: $provinceId
+        type: $type
+validate:
+    - eq: ["status_code", 200]

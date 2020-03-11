@@ -1,0 +1,12 @@
+name: 图片上传
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+request:
+    url: /admin/banner/uploadPic
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+validate:
+    - eq: ["status_code", 200]

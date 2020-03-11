@@ -1,0 +1,17 @@
+name: 获取营业厅列表省市区
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    provinceid:		
+    cityid:					
+    districtid:	
+request:
+    url: /admin/businesshall/getBusinessHallList
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    params:
+        where: "{provinceid:$provinceid,cityid:$cityid,districtid:$districtid}"
+validate:
+    - eq: ["status_code", 200]

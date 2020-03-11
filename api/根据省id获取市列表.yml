@@ -1,0 +1,15 @@
+name: 根据省id获取市列表
+base_url: ${ENV(url)}
+variables:
+    province_id: province_id
+	JSESSIONID: ${ENV(JSESSIONID)}
+request:
+    url: /admin/address/china/listCityByProvince
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        province_id: $province_id
+validate:
+    - eq: ["status_code", 200]

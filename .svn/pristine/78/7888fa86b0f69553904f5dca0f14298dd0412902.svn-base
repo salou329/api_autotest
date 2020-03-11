@@ -1,0 +1,12 @@
+
+config:
+    name: "demo testsuite"
+testcases:
+-
+    name: call demo_testcase with data 1
+    testcase: testcases/上传apk测试.yml
+
+-
+    name: call demo_testcase with data 2
+    testcase: testcases/首页总览测试.yml
+

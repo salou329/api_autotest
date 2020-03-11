@@ -1,0 +1,12 @@
+name: 用户表中已有省份列表
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+request:
+    url: /admin/admin/getProvinceList
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+validate:
+    - eq: ["status_code", 200]

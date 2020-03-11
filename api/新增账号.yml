@@ -1,0 +1,20 @@
+name: 新增账号
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    password:		
+	username:		
+	type:			  
+	province_id:
+	name:				
+	phone:		  
+request:
+    url: /admin/admin/modify
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        where: "{password:$password,username:$username,type:$type,province_id:$province_id,name:$province_id,phone:$phone}"
+validate:
+    - eq: ["status_code", 200]

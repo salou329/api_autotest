@@ -1,0 +1,18 @@
+name: 登录
+base_url: ${ENV(url)}
+variables:
+    username: ${ENV(usr)}
+    password: ${ENV(pwd)}
+    captcha: ${ENV(captcha)}
+request:
+    url: /admin/login
+    method: POST
+    headers:
+        Cookie: JSESSIONID=${ENV(JSESSIONID)}; _jfinal_captcha=${ENV(jfinal_captcha)}
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        username: $username
+        password: $password
+        captcha: $captcha
+validate:
+    - eq: ["status_code", 200]

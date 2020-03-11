@@ -1,0 +1,15 @@
+name: 获取功能开放信息
+base_url: ${ENV(url)}
+variables:
+    id: id
+	JSESSIONID: ${ENV(JSESSIONID)}
+request:
+    url: /admin/businesshall/changeFeatures
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+		id: $id
+validate:
+    - eq: ["status_code", 200]

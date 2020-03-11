@@ -1,0 +1,16 @@
+config:
+    name: "上传apk测试"
+teststeps:
+    - name: 登陆
+      api: api/登录.yml
+      extract:
+          - token: cookies.JSESSIONID
+      validate:
+          - eq: ["content.message", "用户登录成功"]
+    - name: 上传apk
+      api: api/上传版本.yml
+      variables:
+          JSESSIONID: $token
+          apk: ${get_file(test.apk)}
+      validate:
+          - eq: ["content.message", "操作成功"]

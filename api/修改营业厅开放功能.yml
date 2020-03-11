@@ -1,0 +1,39 @@
+name: 修改营业厅开放功能
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    id: 							
+	dzzd: 						
+	dfdl: 						
+	jdf: 							
+	ghgm: 						
+	fgdbg: 						
+	xz: 							
+	yjbz: 						
+	hhgl: 						
+	wddy: 						
+	zr: 							
+	ddc: 							
+	dp: 							
+	qsy: 							
+	xny: 							
+	dzfp: 						
+	uploadtime: 			
+    ztjr: 							
+    xlzbg: 							
+    dnbjy: 							
+    rlxlbg: 						
+    zzsbg: 							
+    rlhf: 							
+    xhtd: 							
+    gzbx: 				      
+request:
+    url: /admin/businesshall/changeFeatures
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+        Content-Type: application/x-www-form-urlencoded;
+    params:
+        where: "{id:$id,dzzd:$dzzd,dfdl:$dfdl,jdf:$jdf,ghgm:$ghgm,fgdbg:$fgdbg,xz:$xz,yjbz:$yjbz,hhgl:$hhgl,wddy:$wddy,zr:$zr,ddc:$ddc,dp:$dp,qsy:$qsy,xny:$xny,dzfp:$dzfp,uploadtime:uploadtime,ztjr:$ztjr,xlzbg:$xlzbg,dnbjy:$dnbjy,rlxlbg:$rlxlbg,zzsbg:$zzsbg,rlhf:$rlhf,xhtd:$xhtd,gzbx:$gzbx}"
+validate:
+    - eq: ["status_code", 200]

@@ -1,0 +1,14 @@
+name: 上传版本
+base_url: ${ENV(url)}
+variables:
+    JSESSIONID: ${ENV(JSESSIONID)}
+    apk: ${get_file(test.apk)}
+request:
+    url: /admin/version/uploadApk
+    method: POST
+    headers:
+        Cookie: JSESSIONID=$JSESSIONID
+    files:
+        file: ['test.apk',$apk,'application/vnd.android.package-archive']
+validate:
+    - eq: ["status_code", 200]
