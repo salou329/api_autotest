@@ -1,6 +1,0 @@
-name: 获取当前时间
-request:
-    url: http://quan.suning.com/getSysTime.do
-    method: GET
-extract:
-    - nowtime: content.sysTime2

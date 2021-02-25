@@ -1,10 +1,11 @@
 
 name: demo api
+base_url: ${ENV(url)}
 variables:
-    var1: value1
-    var2: value2
+    var1: login
+    var2: test
 request:
-    url: /api/path/$var1
+    url: /api/uavcontrol/user/$var1
     method: POST
     headers:
         Content-Type: "application/json"

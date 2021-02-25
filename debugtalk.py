@@ -98,5 +98,5 @@ def joinStr(*value):
 
 
 # 读取文件内容
-def get_file(filePath="test.apk"):
+def get_file(filePath="2.0.0.apk"):
     return open(filePath, "rb")

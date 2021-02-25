@@ -5,15 +5,23 @@ config:
 teststeps:
 -
     name: demo step 1
-    api: api/login.yml
+    api: api/demo_api.yml
     validate:
-        - eq: ["content.message", "用户登录成功"]
+        - eq: ["content.msg", "登录成功"]
+    extract:
+        - postid: "content.data.user.id"
 
 -
     name: demo step 2
-    api: api/device_indexs.yml
+    variables:
+        var2: $postid
+    api: api/demo_api2.yml
+    validate:
+        - eq: ["content.msg", "登录成功"]
+
 
 -
     name: demo step 3
-    api: api/getProvinceList.yml
-
+    api: api/demo_api.yml
+    validate:
+        - eq: ["content.msg", "登录成功"]
